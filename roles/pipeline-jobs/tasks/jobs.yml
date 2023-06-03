@@ -1,7 +1,7 @@
 - name: Copy folder
   templates:
     src: folder.xml
-    dest: /tmp/folder.xml
+    dest: /tmp/jobs.xml
 
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
