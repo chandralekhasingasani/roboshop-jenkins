@@ -1,6 +1,6 @@
 - name: Copy folder
   template:
-    src: folder.xml
+    src: jobs.xml
     dest: /tmp/jobs.xml
 
 - name: Create a jenkins job using basic authentication
