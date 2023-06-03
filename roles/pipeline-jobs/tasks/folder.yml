@@ -3,9 +3,9 @@
     src: folder.xml
     dest: /tmp/folder.xml
 
-- name: Create a jenkins job using basic authentication
+- name: Create a jenkins folder using basic authentication
   community.general.jenkins_job:
-    config: "{{ lookup('file', 'templates/folder.xml') }}"
+    config: "{{ lookup('file', '/tmp/folder.xml') }}"
     name: "{{item}}"
     password: admin
     url: http://172.31.80.181:8080
