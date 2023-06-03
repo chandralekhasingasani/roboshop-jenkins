@@ -1,11 +1,13 @@
 - name: Create jenkins folders
+  hosts: localhost
   ansible.builtin.include_role:
     name: pipeline-jobs
     tasks_from: folder
   loop:
-    - demo
+    - 'demo'
 
 - name: Create jenkins jobs
+  hosts: localhost
   ansible.builtin.include_role:
     name: pipeline-jobs
     tasks_from: jobs
