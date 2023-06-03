@@ -6,4 +6,4 @@
     folder:
       - 'demo'
     jobs:
-      - {'jobName': 'demojob', 'repository': 'practice-ansible'}
+      - {'jobName': 'demojob', 'repository': 'practice-ansible','folderName':'demo'}
