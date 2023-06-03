@@ -1,6 +1,6 @@
 - name: Create jenkins stuff
   hosts: localhost
-  ansible.builtin.import_role:
+  role:
     name: create-jobs
   vars:
     folder:
