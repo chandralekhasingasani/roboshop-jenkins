@@ -1,7 +1,7 @@
 - name: Create jenkins stuff
   hosts: localhost
-  role:
-    name: create-jobs
+  roles:
+    - create-jobs
   vars:
     folder:
       - 'demo'
