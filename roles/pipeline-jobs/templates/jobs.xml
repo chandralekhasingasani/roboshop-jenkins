@@ -8,7 +8,7 @@
             <configVersion>2</configVersion>
             <userRemoteConfigs>
                 <hudson.plugins.git.UserRemoteConfig>
-                    <url>https://github.com/chandralekhasingasani/{{item.repository-name}}.git</url>
+                    <url>https://github.com/chandralekhasingasani/{{item.repository}}.git</url>
                     <credentialsId>workstation</credentialsId>
                 </hudson.plugins.git.UserRemoteConfig>
             </userRemoteConfigs>
