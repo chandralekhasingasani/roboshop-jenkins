@@ -1,5 +1,5 @@
 - name: Copy folder
-  templates:
+  template:
     src: folder.xml
     dest: /tmp/folder.xml
 
