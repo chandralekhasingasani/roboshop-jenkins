@@ -1,0 +1,13 @@
+- name: Create jenkins folders
+  ansible.builtin.include_role:
+    name: pipeline-jobs
+    tasks_from: folder
+  loop:
+    - demo
+
+- name: Create jenkins jobs
+  ansible.builtin.include_role:
+    name: pipeline-jobs
+    tasks_from: jobs
+  loop:
+    - {'jobName': 'demo-job', 'repository-name': 'practice-ansible'}
