@@ -4,6 +4,6 @@
     - create-jobs
   vars:
     folder:
-      - 'demo'
+      - 'infrastructure'
     jobs:
-      - {'jobName': 'demojob', 'repository': 'practice-ansible','folder':'demo'}
+      - {'jobName': 'cart-infra', 'repository': 'roboshop-cart-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile'}

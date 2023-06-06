@@ -1,0 +1,8 @@
+pipeline{
+    agent any
+    stages{
+        stage('create'){
+            ansible-playbook main.yml
+        }
+    }
+}
