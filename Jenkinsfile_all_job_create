@@ -3,6 +3,13 @@ pipeline{
     stages{
         stage('create'){
             steps{
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'agent', url: 'https://github.com/chandralekhasingasani/roboshop-jenkins.git']])
+            }
+
+        }
+        stage('create'){
+            steps{
+                sh 'ls -ltr'
                 sh 'ansible-playbook main.yml'
             }
 
