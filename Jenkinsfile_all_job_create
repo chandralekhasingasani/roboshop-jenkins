@@ -4,6 +4,7 @@ pipeline{
         stage('create'){
             steps{
                 sh 'ls -ltr'
+                sh 'pwd'
                 sh 'ansible-playbook main.yml'
             }
 
