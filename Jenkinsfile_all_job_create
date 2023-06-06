@@ -2,7 +2,10 @@ pipeline{
     agent any
     stages{
         stage('create'){
-            ansible-playbook main.yml
+            steps{
+                sh 'ansible-playbook main.yml'
+            }
+
         }
     }
 }
