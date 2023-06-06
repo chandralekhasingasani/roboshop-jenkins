@@ -1,6 +1,7 @@
 def call(){
 pipeline{
-    agent 'any'
+    agent {
+    label 'agent'}
 
     parameters {
         choice(name: 'ENV', choices: ['dev','prod'], description: 'Pick something')
