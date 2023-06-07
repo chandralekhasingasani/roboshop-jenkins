@@ -6,7 +6,7 @@ pipeline{
         choice(name: 'ENV', choices: ['dev','prod'], description: 'Pick something')
     }
     stages{
-        stage{
+        stage('destroy cart'){
             steps{
                 dir('CART') {
                     git branch: 'main', url: 'https://github.com/raghudevopsb64/roboshop-cart-infra.git'
@@ -16,5 +16,5 @@ pipeline{
             }
         }
 
-        }
     }
+}
