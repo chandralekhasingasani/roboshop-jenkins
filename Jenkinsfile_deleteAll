@@ -6,15 +6,10 @@ pipeline{
         choice(name: 'ENV', choices: ['dev','prod'], description: 'Pick something')
     }
     stages{
-        stage('terraform init'){
-            steps{
-                sh 'pwd;ls -ltr;terraform init -backend-config=env-dev/backend.tfvars'
-            }
+        dir('CART') {
+            git branch: 'main', url: 'https://github.com/raghudevopsb64/roboshop-cart-infra.git'
+            sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+            sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
         }
-        stage('terraform destroy'){
-            steps{
-                sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
-            }
         }
     }
-}
