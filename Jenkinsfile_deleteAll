@@ -8,10 +8,10 @@ pipeline{
     stages{
         stage('terraform init'){
             steps{
-                sh 'terraform init -backend-config=env-dev/backend.tfvars'
+                sh 'pwd;ls -ltr;terraform init -backend-config=env-dev/backend.tfvars'
             }
         }
-        stage('terraform apply'){
+        stage('terraform destroy'){
             steps{
                 sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
             }
