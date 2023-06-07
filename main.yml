@@ -7,3 +7,4 @@
       - 'infrastructure'
     jobs:
       - {'jobName': 'cart-infra', 'repository': 'roboshop-cart-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile'}
+      - {'jobName': 'destroy_all', 'repository': 'roboshop-jenkins','folder':'infrastructure','jenkinsfilename':'Jenkinsfile_deleteAll'}
