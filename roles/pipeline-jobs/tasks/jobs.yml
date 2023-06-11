@@ -11,6 +11,10 @@
   register: my_jenkins_job_info
   ignore_errors: true
 
+- name: Read
+  ansible.builtin.debug:
+    msg: "{{my_jenkins_job_info}}"
+
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
     config: "{{ lookup('file', '/tmp/jobs.xml') }}"
