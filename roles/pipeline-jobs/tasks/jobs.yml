@@ -1,7 +1,15 @@
-- name: Copy folder
+- name: Copy jobs
   template:
     src: jobs.xml
     dest: /tmp/jobs.xml
+
+- community.general.jenkins_job_info:
+    name: "{{item.folder}}/{{item.jobName}}"
+    user: admin
+    password: admin
+    url: http://172.31.80.184:8080
+  register: my_jenkins_job_info
+  ignore_errors: true
 
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
