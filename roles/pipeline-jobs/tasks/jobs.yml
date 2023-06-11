@@ -22,3 +22,4 @@
     password: admin
     url: http://172.31.80.184:8080
     user: admin
+  when: "{{my_jenkins_job_info.failed}}" is true
