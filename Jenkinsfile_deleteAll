@@ -21,7 +21,6 @@ pipeline{
                     git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-cart-infra.git'
                     sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
                     sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
-                    tf - module - transit
                 }
             }
         }
