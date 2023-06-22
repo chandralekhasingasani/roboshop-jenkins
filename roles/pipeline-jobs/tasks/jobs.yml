@@ -7,7 +7,7 @@
     name: "{{item.folder}}/{{item.jobName}}"
     user: admin
     password: admin
-    url: http://172.31.80.184:8080
+    url: http://172.31.80.120:8080
   register: my_jenkins_job_info
   ignore_errors: true
 
@@ -20,6 +20,6 @@
     config: "{{ lookup('file', '/tmp/jobs.xml') }}"
     name: "{{item.folder}}/{{item.jobName}}"
     password: admin
-    url: http://172.31.80.184:8080
+    url: http://172.31.80.120:8080
     user: admin
   when: my_jenkins_job_info.failed|bool
