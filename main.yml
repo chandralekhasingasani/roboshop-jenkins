@@ -10,3 +10,4 @@
       - {'jobName': 'destroy_all', 'repository': 'roboshop-jenkins','folder':'infrastructure','jenkinsfilename':'Jenkinsfile_deleteAll','branchname':'master'}
       - {'jobName': 'transit-gateway-setup', 'repository': 'tf-module-transit','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
       - {'jobName': 'shipping-infra', 'repository': 'roboshop-shipping-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
+      - {'jobName': 'user-infra', 'repository': 'roboshop-user-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
