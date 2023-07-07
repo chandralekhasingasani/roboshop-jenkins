@@ -1,0 +1,41 @@
+pipeline{
+    agent {
+        label 'agent'}
+
+    parameters {
+        choice(name: 'ENV', choices: ['dev','prod'], description: 'Pick something')
+    }
+    stages {
+        stage('DESTROY') {
+
+            parallel {
+
+                stage('DEAFULT-TGW') {
+                    steps {
+                        dir('DEAFULT-TGW') {
+                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/tf-module-transit.git'
+                            sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                            sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
+                        }
+                    }
+                }
+
+                stage('CART') {
+                    steps {
+                        dir('CART') {
+                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-cart-infra.git'
+                            sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                            sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                        }
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
+
