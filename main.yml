@@ -6,6 +6,7 @@
     folder:
       - 'infrastructure'
     jobs:
+      - {'jobName': 'create-all', 'repository': 'roboshop-jenkins','folder':'infrastructure','jenkinsfilename':'Jenkinsfile_create_all','branchname':'master'}
       - {'jobName': 'cart-infra', 'repository': 'roboshop-cart-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
       - {'jobName': 'destroy_all', 'repository': 'roboshop-jenkins','folder':'infrastructure','jenkinsfilename':'Jenkinsfile_deleteAll','branchname':'master'}
       - {'jobName': 'transit-gateway-setup', 'repository': 'tf-module-transit','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
