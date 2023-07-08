@@ -22,7 +22,7 @@ pipeline{
 
                 stage('USER') {
                     steps {
-                        dir('CART') {
+                        dir('USER') {
                             git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-user-infra.git'
                             sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
                             sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
@@ -32,8 +32,8 @@ pipeline{
 
                 stage('FRONTEND') {
                     steps {
-                        dir('CART') {
-                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-cart-infra.git'
+                        dir('FRONTEND') {
+                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-frontend-infra.git'
                             sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
                             sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
                         }
