@@ -6,7 +6,7 @@ pipeline{
         choice(name: 'ENV', choices: ['dev','prod'], description: 'Pick something')
     }
     stages {
-        stage('DESTROY') {
+        stage('CREATE') {
 
             parallel {
 
@@ -16,6 +16,16 @@ pipeline{
                             git branch: 'main', url: 'https://github.com/chandralekhasingasani/tf-module-transit.git'
                             sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
                             sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
+                        }
+                    }
+                }
+
+                stage('CART') {
+                    steps {
+                        dir('CART') {
+                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-user-infra.git'
+                            sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                            sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
                         }
                     }
                 }
