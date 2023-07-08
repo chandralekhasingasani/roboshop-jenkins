@@ -13,3 +13,4 @@
       - {'jobName': 'shipping-infra', 'repository': 'roboshop-shipping-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
       - { 'jobName': 'frontend-infra', 'repository': 'roboshop-frontend-infra','folder': 'infrastructure','jenkinsfilename': 'Jenkinsfile','branchname': 'main' }
       - {'jobName': 'user-infra', 'repository': 'roboshop-user-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
+      - {'jobName': 'catalogue-infra', 'repository': 'roboshop-catalogue-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
