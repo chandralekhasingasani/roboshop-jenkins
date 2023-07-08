@@ -10,20 +10,20 @@ pipeline{
 
             parallel {
 
-                stage('CART') {
+                stage('USER') {
                     steps {
-                        dir('CART') {
-                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-cart-infra.git'
+                        dir('USER') {
+                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-user-infra.git'
                             sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
                             sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
                         }
                     }
                 }
 
-                stage('SHIPPING') {
+                stage('FRONTEND') {
                     steps {
                         dir('SHIPPING') {
-                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-shipping-infra.git'
+                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-frontend-infra.git'
                             sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
                             sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
                         }
