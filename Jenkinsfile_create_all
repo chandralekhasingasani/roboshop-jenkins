@@ -20,7 +20,7 @@ pipeline{
                     }
                 }
 
-                stage('CART') {
+                stage('USER') {
                     steps {
                         dir('CART') {
                             git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-user-infra.git'
@@ -30,7 +30,7 @@ pipeline{
                     }
                 }
 
-                stage('CART') {
+                stage('FRONTEND') {
                     steps {
                         dir('CART') {
                             git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-cart-infra.git'
