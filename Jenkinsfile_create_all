@@ -20,13 +20,47 @@ pipeline{
                     }
                 }
 
-                stage('USER') {
-                    steps {
-                        dir('USER') {
-                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-user-infra.git'
-                            sh 'pwd'
-                            sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
-                            sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                parallel {
+                    stage('USER') {
+                        steps {
+                            dir('USER') {
+                                git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-user-infra.git'
+                                sh 'pwd'
+                                sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                                sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                            }
+                        }
+                    }
+                    stage('CATALOGUE') {
+                        steps {
+                            dir('CATALOGUE') {
+                                git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-catalogue-infra.git'
+                                sh 'pwd'
+                                sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                                sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                            }
+                        }
+                    }
+
+                    stage('CART') {
+                        steps {
+                            dir('CART') {
+                                git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-cart-infra.git'
+                                sh 'pwd'
+                                sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                                sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                            }
+                        }
+                    }
+
+                    stage('SHIPPING') {
+                        steps {
+                            dir('SHIPPING') {
+                                git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-shipping-infra.git'
+                                sh 'pwd'
+                                sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                                sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                            }
                         }
                     }
                 }
