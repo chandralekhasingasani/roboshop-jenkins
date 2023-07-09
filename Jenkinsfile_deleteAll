@@ -11,7 +11,7 @@ pipeline{
                 dir('PUBLIC-ALB') {
                     git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-public-alb.git'
                     sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
-                    sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                    sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
                 }
             }
         }
