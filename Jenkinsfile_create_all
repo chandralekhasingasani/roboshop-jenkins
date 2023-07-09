@@ -59,6 +59,17 @@ pipeline{
                         }
                     }
                 }
+
+                stage('PAYMENT') {
+                    steps {
+                        dir('PAYMENT') {
+                            git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-payment-infra.git'
+                            sh 'pwd'
+                            sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                            sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                        }
+                    }
+                }
             }
         }
 
@@ -71,6 +82,17 @@ pipeline{
                         }
                     }
                 }
+
+            stage('PUBLIC-ALB') {
+                steps {
+                dir('PUBLIC-ALB') {
+                    git branch: 'main', url: 'https://github.com/chandralekhasingasani/roboshop-public-alb.git'
+                    sh 'terraform init -backend-config=env-${ENV}/backend.tfvars'
+                    sh 'terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars '
+                }
+            }
+        }
+
             }
         }
     post {

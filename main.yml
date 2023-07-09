@@ -15,3 +15,4 @@
       - {'jobName': 'user-infra', 'repository': 'roboshop-user-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
       - {'jobName': 'catalogue-infra', 'repository': 'roboshop-catalogue-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
       - {'jobName': 'payment-infra', 'repository': 'roboshop-payment-infra','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
+      - {'jobName': 'public-alb-infra', 'repository': 'roboshop-public-alb','folder':'infrastructure','jenkinsfilename':'Jenkinsfile','branchname':'main'}
