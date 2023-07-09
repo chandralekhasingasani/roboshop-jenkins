@@ -8,8 +8,6 @@ pipeline{
     stages {
         stage('CREATE') {
 
-            parallel {
-
                 stage('DEAFULT-TGW') {
                     steps {
                         dir('DEAFULT-TGW') {
@@ -82,5 +80,5 @@ pipeline{
             cleanWs()
         }
     }
-}
+
 
