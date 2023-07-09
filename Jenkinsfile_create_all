@@ -6,9 +6,7 @@ pipeline{
         choice(name: 'ENV', choices: ['dev','prod'], description: 'Pick something')
     }
     stages {
-        stage('CREATE') {
-
-                stage('DEAFULT-TGW') {
+        stage('DEAFULT-TGW') {
                     steps {
                         dir('DEAFULT-TGW') {
                             git branch: 'main', url: 'https://github.com/chandralekhasingasani/tf-module-transit.git'
@@ -74,7 +72,6 @@ pipeline{
                 }
             }
         }
-    }
     post {
         always {
             cleanWs()
